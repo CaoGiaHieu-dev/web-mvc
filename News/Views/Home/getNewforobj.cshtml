@@ -1,0 +1,69 @@
+﻿@model IEnumerable<News.Models.tintuc>
+
+@{
+    int dem = 0;
+    foreach (var i in Model)
+    {
+        if (dem == 0)
+        {
+            <div class="m-b-30">
+                <a href="~/@ViewBag.meta/@i.meta/@i.id" class="wrap-pic-w hov1 trans-03">
+                    <img style="height: 220px;" src="~/Content/upload/img/@i.img" alt="@i.name">
+                </a>
+
+                <div class="p-t-20">
+                    <h5 class="p-b-5">
+                        <a href="~/@ViewBag.meta/@i.meta/@i.id" class="f1-m-3 cl2 hov-cl10 trans-03">
+                            @i.description
+                        </a>
+                    </h5>
+
+                    <span class="cl8">
+                        <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
+                            @i.name
+                        </a>
+
+                        <span class="f1-s-3 m-rl-3">
+                            -
+                        </span>
+
+                        <span class="f1-s-3">
+                            @Convert.ToDateTime(i.datebegin).ToString("MMMM dd")
+                        </span>
+                    </span>
+                </div>
+            </div>
+            dem++;
+        }
+        else
+        {
+            <div class="flex-wr-sb-s m-b-30">
+                <a href="~/@ViewBag.meta/@i.meta/@i.id" class="size-w-1 wrap-pic-w hov1 trans-03">
+                    <img src="~/Content/upload/img/@i.img" alt="@i.name">
+                </a>
+
+                <div class="size-w-2">
+                    <h5 class="p-b-5">
+                        <a href="~/@ViewBag.meta/@i.meta/@i.id" class="f1-s-5 cl3 hov-cl10 trans-03">
+                            @i.description
+                        </a>
+                    </h5>
+
+                    <span class="cl8">
+                        <a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+                            @i.name
+                        </a>
+
+                        <span class="f1-s-3 m-rl-3">
+                            <br />
+                        </span>
+
+                        <span class="f1-s-3">
+                            @Convert.ToDateTime(i.datebegin).ToString("MMMM dd")
+                        </span>
+                    </span>
+                </div>
+            </div>
+        }
+    }
+}

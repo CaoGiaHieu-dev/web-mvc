@@ -1,0 +1,40 @@
+﻿@model IEnumerable< News.Models.tintuc>
+
+<div class="col-sm-6 col-lg-4 p-b-20">
+    <div class="size-h-3 flex-s-c">
+        <h5 class="f1-m-7 cl0">
+            Địa chỉ 
+        </h5>
+    </div>
+    <ul>
+        <li class="flex-wr-sb-s p-b-20">
+            <h2 style="color:#ccc">
+                19 Đường Nguyễn Hữu Thọ, Tân Hưng, Quận 7, Hồ Chí Minh 
+            </h2>
+        </li>
+        <li class="flex-wr-sb-s p-b-20">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3920.023915034813!2d106.69705161474856!3d10.732638792351246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1574061077574!5m2!1svi!2s" width="600" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        </li>
+        @*@foreach (var i in Model)
+        {
+            <li class="flex-wr-sb-s p-b-20">
+                <a href="~/@ViewBag.meta/@i.meta/@i.id" class="size-w-4 wrap-pic-w hov1 trans-03">
+                    <img src="~/Content/upload/img/@i.img" alt="IMG">
+                </a>
+
+                <div class="size-w-5">
+                    <h6 class="p-b-5">
+                        <a href="~/@ViewBag.meta/@i.meta/@i.id" class="f1-s-5 cl11 hov-cl10 trans-03">
+                            @i.description
+                        </a>
+                    </h6>
+
+                    <span class="f1-s-3 cl6">
+                        @Convert.ToDateTime(i.datebegin).ToString("MMMM dd")
+                    </span>
+                </div>
+            </li>
+        }*@
+    </ul>
+</div>
+
