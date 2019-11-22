@@ -15,7 +15,7 @@ using PagedList.Mvc;
 
 namespace News.Areas.admin.Controllers
 {
-    public class tintucsController : Controller
+    public class tintucsController : BaseController
     {
         private NewsEntities db = new NewsEntities();
 

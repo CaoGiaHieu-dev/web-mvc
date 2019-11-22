@@ -26,7 +26,7 @@ namespace Model.DAO
                 return false;
             }
         }
-        public User getID(string user)
+        public User getUserName(string user)
         {
             return db.User.SingleOrDefault(x => x.Username == user);
         }

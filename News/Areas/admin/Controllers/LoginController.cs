@@ -8,6 +8,7 @@ using Model.DAO;
 using Model;
 using News.Areas.admin.Code;
 using Model.Models;
+using News.Areas.Common;
 
 namespace News.Areas.admin.Controllers
 {
@@ -26,7 +27,13 @@ namespace News.Areas.admin.Controllers
             var result = dao.loginn(model.username, model.password);
             if (result && ModelState.IsValid)
             {
-                SessionHelper.setSession(new UserSession() { username = model.username });
+                //SessionHelper.setSession(new UserSession() { username = model.username });
+
+                var usersession = new UserLogin();
+                var user = dao.getUserName(model.username);
+                usersession.Username = user.Username;
+                usersession.ID = user.ID;
+                Session.Add(CommonConstants.User_Session,usersession);
 
                 return RedirectToAction("Index", "Home");
             }

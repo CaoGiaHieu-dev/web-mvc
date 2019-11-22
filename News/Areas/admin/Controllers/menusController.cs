@@ -15,7 +15,7 @@ using PagedList.Mvc;
 
 namespace News.Areas.admin.Controllers
 {
-    public class menusController : Controller
+    public class menusController : BaseController
     {
         private NewsEntities db = new NewsEntities();
         public ActionResult getPagelist(int? page)

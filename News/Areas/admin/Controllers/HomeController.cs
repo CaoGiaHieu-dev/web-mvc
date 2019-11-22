@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace News.Areas.admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET: admin/Home
         public ActionResult Index()
