@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using News.Models;
 using Model.DAO;
+using Model;
+using News.Areas.admin.Code;
+using Model.Models;
 
 namespace News.Areas.admin.Controllers
 {
@@ -15,22 +18,24 @@ namespace News.Areas.admin.Controllers
         {
             return View();
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Index(LoginMD model )
-        //{
-        //    var dao = new AccountDAO();
-        //    var result = dao.login(model.username, model.password);
-        //    if(result && ModelState.IsValid)
-        //    {
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //    else
-        //    {
-        //        ModelState.AddModelError("", "Wrong Id or password");
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(LoginMD model)
+        {
+            var dao = new AccountDAO();
+            var result = dao.loginn(model.username, model.password);
+            if (result && ModelState.IsValid)
+            {
+                SessionHelper.setSession(new UserSession() { username = model.username });
 
-        //    }
-        //    return View(model);
-        //}
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không đúng !");
+
+            }
+            return View(model);
+        }
     }
 }

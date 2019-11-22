@@ -14,9 +14,9 @@ namespace Model.DAO
         {
             db = new NewsDbContext();
         }
-        public bool login(string user , string password)
+        public bool loginn(string username , string password)
         {
-            var result = db.User.Count(x => x.Username == user && x.Password == password);
+            var result = db.User.Count(x => x.Username == username && x.Password == password);
             if(result >0)
             {
                 return true;

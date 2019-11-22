@@ -4,7 +4,37 @@
     Layout = "~/Areas/admin/Views/Shared/_LoginLayout.cshtml";
 }
 <form>
+    @model News.Models.LoginMD
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, null, new { @class = "alert aler-danger" })
 
-   
+        <div class="form-group">
+            <div class="form-label-group">
+                <label for="inputEmail">Tài khoản</label>
+                @Html.TextBoxFor(model => model.username, new { @class = "form-control", @id = "inputEmail", @placeholder = "Tên đăng nhập", @required = "required", @autofocus = "autofocus" })
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label-group">
+                <label for="inputPassword">Mật khẩu</label>
+                @Html.TextBoxFor(model => model.password, new { @class = "form-control", @id = "inputPassword", @placeholder = "Mật khẩu", @required = "required", @autofocus = "autofocus" })
+                
+            </div>
+        </div>
+            @*<div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="remember-me">
+                            Remember Password
+                        </label>
+                    </div>
+                </div>*@
+            <button type="submit" class="btn btn-primary btn-block">
+                Login
+            </button>
+
+    }
 </form>
-

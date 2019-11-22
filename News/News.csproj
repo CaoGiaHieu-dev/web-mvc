@@ -191,6 +191,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Areas\admin\Code\SessionHelper.cs" />
+    <Compile Include="Areas\admin\Code\UserSession.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\admin\Controllers\menusController.cs" />
@@ -2305,7 +2307,6 @@
     <Content Include="Areas\admin\Views\tintucs\getPagelist.cshtml" />
     <Content Include="Areas\admin\Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Areas\admin\Views\Login\Index.cshtml" />
-    <Fakes Include="Fakes\Model.fakes" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Shared\View1.cshtml" />
     <Content Include="Views\Shared\Partial1.cshtml" />
@@ -2459,9 +2460,7 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
-<PropertyGroup>
-
-<ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-
-</PropertyGroup>
+  <PropertyGroup>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+  </PropertyGroup>
 </Project>

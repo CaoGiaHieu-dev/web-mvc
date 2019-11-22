@@ -7,3 +7,4 @@ C:\Users\Shjn\Desktop\web-mvc\Model\bin\Debug\EntityFramework.xml
 C:\Users\Shjn\Desktop\web-mvc\Model\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Shjn\Desktop\web-mvc\Model\obj\Debug\Model.dll
 C:\Users\Shjn\Desktop\web-mvc\Model\obj\Debug\Model.pdb
+C:\Users\Shjn\Desktop\web-mvc\Model\obj\Debug\Models.csprojResolveAssemblyReference.cache
