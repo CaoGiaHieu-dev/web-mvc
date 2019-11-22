@@ -1,0 +1,9 @@
+C:\Users\Shjn\Desktop\web-mvc\Model\bin\Debug\Model.dll.config
+C:\Users\Shjn\Desktop\web-mvc\Model\bin\Debug\Model.dll
+C:\Users\Shjn\Desktop\web-mvc\Model\bin\Debug\Model.pdb
+C:\Users\Shjn\Desktop\web-mvc\Model\bin\Debug\EntityFramework.dll
+C:\Users\Shjn\Desktop\web-mvc\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Shjn\Desktop\web-mvc\Model\bin\Debug\EntityFramework.xml
+C:\Users\Shjn\Desktop\web-mvc\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Shjn\Desktop\web-mvc\Model\obj\Debug\Model.dll
+C:\Users\Shjn\Desktop\web-mvc\Model\obj\Debug\Model.pdb
