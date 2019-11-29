@@ -208,6 +208,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>News.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginMD.cs" />
     <Compile Include="Models\menu.cs">

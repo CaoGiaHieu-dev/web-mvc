@@ -9,6 +9,7 @@
     </AssociationSet>
     <EntitySet Name="sysdiagrams" EntityType="NewsModel.sysdiagram" />
     <EntitySet Name="Users" EntityType="NewsModel.User" />
+    <EntitySet Name="Contacts" EntityType="NewsModel.Contact" />
   </EntityContainer>
   <EntityType Name="menu">
     <Key>
@@ -70,5 +71,16 @@
     <Property Name="Username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Fullname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ID_contact" />
+    </Key>
+    <Property Name="ID_contact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="img" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
   </EntityType>
 </Schema>

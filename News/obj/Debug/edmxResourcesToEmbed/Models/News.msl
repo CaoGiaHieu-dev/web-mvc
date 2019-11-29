@@ -52,5 +52,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="NewsModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID_contact" ColumnName="ID_contact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

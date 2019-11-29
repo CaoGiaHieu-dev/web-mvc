@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="NewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID_contact" />
+          </Key>
+          <Property Name="ID_contact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="img" Type="nvarchar" MaxLength="30" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="detail" Type="ntext" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
         <EntityType Name="menu">
           <Key>
             <PropertyRef Name="id_m" />
@@ -65,6 +76,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="NewsModelStoreContainer">
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tintuc" EntityType="Self.tintuc" Schema="dbo" store:Type="Tables" />
@@ -87,6 +99,7 @@
           </AssociationSet>
           <EntitySet Name="sysdiagrams" EntityType="NewsModel.sysdiagram" />
           <EntitySet Name="Users" EntityType="NewsModel.User" />
+          <EntitySet Name="Contacts" EntityType="NewsModel.Contact" />
         </EntityContainer>
         <EntityType Name="menu">
           <Key>
@@ -149,6 +162,17 @@
           <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Fullname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID_contact" />
+          </Key>
+          <Property Name="ID_contact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -203,6 +227,18 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="NewsModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ID_contact" ColumnName="ID_contact" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

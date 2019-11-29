@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="NewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ID_contact" />
+    </Key>
+    <Property Name="ID_contact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="img" Type="nvarchar" MaxLength="30" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="detail" Type="ntext" />
+    <Property Name="datebegin" Type="smalldatetime" />
+  </EntityType>
   <EntityType Name="menu">
     <Key>
       <PropertyRef Name="id_m" />
@@ -60,6 +71,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="NewsModelStoreContainer">
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tintuc" EntityType="Self.tintuc" Schema="dbo" store:Type="Tables" />

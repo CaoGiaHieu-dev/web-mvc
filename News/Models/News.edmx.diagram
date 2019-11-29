@@ -10,6 +10,7 @@
         <AssociationConnector Association="NewsModel.FK__tintuc__id_m__38996AB5" />
         <EntityTypeShape EntityType="NewsModel.sysdiagram" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="NewsModel.User" Width="1.5" PointX="6.125" PointY="3.5" />
+        <EntityTypeShape EntityType="NewsModel.Contact" Width="1.5" PointX="8.125" PointY="1.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
