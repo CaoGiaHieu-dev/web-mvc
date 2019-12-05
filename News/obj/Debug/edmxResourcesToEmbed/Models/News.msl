@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="NewsModelStoreContainer" CdmEntityContainer="NewsEntities">
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="NewsModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="id_m" ColumnName="id_m" />
+          <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID_contact" ColumnName="ID_contact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="menus">
       <EntityTypeMapping TypeName="NewsModel.menu">
         <MappingFragment StoreEntitySet="menu">
@@ -31,17 +44,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="NewsModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="definition" ColumnName="definition" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="NewsModel.User">
         <MappingFragment StoreEntitySet="User">
@@ -49,18 +51,6 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Contacts">
-      <EntityTypeMapping TypeName="NewsModel.Contact">
-        <MappingFragment StoreEntitySet="Contact">
-          <ScalarProperty Name="datebegin" ColumnName="datebegin" />
-          <ScalarProperty Name="detail" ColumnName="detail" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="img" ColumnName="img" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="ID_contact" ColumnName="ID_contact" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

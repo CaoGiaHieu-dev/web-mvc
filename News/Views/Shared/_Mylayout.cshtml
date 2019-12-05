@@ -12,10 +12,16 @@
     <!--===============================================================================================-->
     <link href=”~/Content/PagedList.css” rel=”stylesheet” type=”text/css” />
     <link rel="icon" type="image/png" href="~/Content/image/icon.jpg" />
-    <link href="/Areas/admin/Content/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="~/Areas/admin/Content/dist/css/sb-admin-2.css" rel="stylesheet">
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="stylesheet" type="text/css" href="~/Content/css/temp.css">
     <!--===============================================================================================-->
+
+    <!-- Bootstrap Core CSS -->
+    <link href=”~/Content/PagedList.css” rel=”stylesheet” type=”text/css” />
+
+
+
     <link rel="stylesheet" type="text/css" href="~/Content/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="~/Content/fonts/fontawesome-5.0.8/css/fontawesome-all.min.css">
@@ -43,11 +49,10 @@
                 <div class="content-topbar container h-100">
                     <div class="left-topbar">
 
-                        <a href="@Url.Action("About","Home")" class="left-topbar-item">
+                        <a href="@Url.Action("About", "Home")" class="left-topbar-item">
                             Giới thiệu
                         </a>
-
-                        <a href="@Url.Action("Contact","Home")" class="left-topbar-item">
+                        <a href="@Url.Action("Create", "Contacts")" class="left-topbar-item">
                             Liên hệ
                         </a>
                     </div>
@@ -77,11 +82,11 @@
                     
 
                     <li class="left-topbar">
-                        <a href="#" class="left-topbar-item">
+                        <a href="@Url.Action("About","Home")" class="left-topbar-item">
                             Giới thiệu
                         </a>
 
-                        <a href="#" class="left-topbar-item">
+                        <a href="@Url.Action("Create","Contact")" class="left-topbar-item">
                             Liên hệ
                         </a>
                     </li>
@@ -273,6 +278,28 @@
     <script src="~/Scripts/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
     <script src="~/Scripts/js/main.js"></script>
+   
+    @section _Footer
+{
+        <script src="~/Areas/admin/Content/ckfinder/ckfinder.js"></script>
+        <script src="~/Areas/admin/Content/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript">
+        var editor = CKEDITOR.replace("detail");
+        var editor = CKEDITOR.replace("detail", { height: '600px' });
+        customConfig: '/Areas/admin/Content/ckeditor/config.js';
+        </script>
+        <script>
+        $(function () {
+            $("#name").keyup(function () {
+                var text = $.trim($(this).val().toLowerCase());
+                var text_create;
+                text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/\ /g, '-').replace(/đ/g, "d").replace(/đ/g, "d").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/ì|í|ị|ỉ|ĩ/g, "i");
+                $('#meta').val(text_create);
+            }).keyup();
+        });
+        </script>
+    }
+
 
 </body>
 </html>

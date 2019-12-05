@@ -194,6 +194,7 @@
     <Compile Include="Areas\admin\Code\SessionHelper.cs" />
     <Compile Include="Areas\admin\Code\UserSession.cs" />
     <Compile Include="Areas\admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\admin\Controllers\Contacts_adminController.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\admin\Controllers\menusController.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Areas\Common\UserLogin.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="FW\Support.cs" />
     <Compile Include="Global.asax.cs">
@@ -230,9 +232,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>News.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>News.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tintuc.cs">
       <DependentUpon>News.tt</DependentUpon>
@@ -2314,6 +2313,12 @@
     <Content Include="Areas\admin\Views\tintucs\getPagelist.cshtml" />
     <Content Include="Areas\admin\Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Areas\admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Contacts_admin\Create.cshtml" />
+    <Content Include="Areas\admin\Views\Contacts_admin\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\Contacts_admin\Details.cshtml" />
+    <Content Include="Areas\admin\Views\Contacts_admin\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\Contacts_admin\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Contacts_admin\getPagelist.cshtml" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Shared\View1.cshtml" />
     <Content Include="Views\Shared\Partial1.cshtml" />
@@ -2413,6 +2418,12 @@
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\getSearch.cshtml" />
     <Content Include="Views\Category\getPagelist.cshtml" />
+    <Content Include="Views\Contacts\Create.cshtml" />
+    <Content Include="Views\Contacts\Delete.cshtml" />
+    <Content Include="Views\Contacts\Details.cshtml" />
+    <Content Include="Views\Contacts\Edit.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\Contacts\getPagelist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

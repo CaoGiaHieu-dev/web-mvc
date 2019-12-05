@@ -10,6 +10,7 @@
     <Property Name="description" Type="nvarchar(max)" />
     <Property Name="detail" Type="ntext" />
     <Property Name="datebegin" Type="smalldatetime" />
+    <Property Name="id_m" Type="int" />
   </EntityType>
   <EntityType Name="menu">
     <Key>
@@ -22,16 +23,6 @@
     <Property Name="hide" Type="bit" />
     <Property Name="position" Type="int" />
     <Property Name="datebegin" Type="smalldatetime" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="tintuc">
     <Key>
@@ -70,15 +61,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Contact_menu">
+    <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
+    <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="id_m" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="id_m" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="NewsModelStoreContainer">
     <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tintuc" EntityType="Self.tintuc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__tintuc__id_m__571DF1D5" Association="Self.FK__tintuc__id_m__571DF1D5">
       <End Role="menu" EntitySet="menu" />
       <End Role="tintuc" EntitySet="tintuc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contact_menu" Association="Self.FK_Contact_menu">
+      <End Role="menu" EntitySet="menu" />
+      <End Role="Contact" EntitySet="Contact" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

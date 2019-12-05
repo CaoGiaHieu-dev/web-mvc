@@ -25,10 +25,9 @@ namespace News.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<menu> menus { get; set; }
         public virtual DbSet<tintuc> tintucs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Contact> Contacts { get; set; }
     }
 }

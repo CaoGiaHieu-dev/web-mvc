@@ -17,6 +17,7 @@ namespace News.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public menu()
         {
+            this.Contacts = new HashSet<Contact>();
             this.tintucs = new HashSet<tintuc>();
         }
     
@@ -28,6 +29,8 @@ namespace News.Models
         public Nullable<int> position { get; set; }
         public Nullable<System.DateTime> datebegin { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contact> Contacts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tintuc> tintucs { get; set; }
     }

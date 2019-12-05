@@ -20,5 +20,8 @@ namespace News.Models
         public string description { get; set; }
         public string detail { get; set; }
         public Nullable<System.DateTime> datebegin { get; set; }
+        public Nullable<int> id_m { get; set; }
+    
+        public virtual menu menu { get; set; }
     }
 }
