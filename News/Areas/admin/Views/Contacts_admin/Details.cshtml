@@ -5,62 +5,59 @@
     Layout = "~/Areas/admin/Views/Shared/_adminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Thông tin</h2>
 
-<div>
-    <h4>Contact</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                Chi tiết liên hệ
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Tiêu đề
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.name)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.img)
-        </dt>
+                    <dt>
+                        Hình ảnh
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.img)
-        </dd>
+                    <dd>
+                        <img src="~/Content/upload/img/@Model.img" width="150px" />
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
+                    <dt>
+                        Mô tả
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.description)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.detail)
-        </dt>
+                    <dt>
+                        Chi tiết
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.detail)
-        </dd>
+                    <dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.datebegin)
-        </dt>
+                        @Html.Raw(Model.detail)
+                    </dd>
+                    
 
-        <dd>
-            @Html.DisplayFor(model => model.datebegin)
-        </dd>
+                </dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.menu.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.menu.name)
-        </dd>
-
-    </dl>
+                <p>
+                    @Html.ActionLink("Quay lại", "Index")
+                </p>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>

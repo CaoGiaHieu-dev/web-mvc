@@ -5,68 +5,69 @@
     Layout = "~/Areas/admin/Views/Shared/_adminLayout.cshtml";
 }
 
-<h2>Delete</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                Xóa 1liên hệ
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Contact</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
+                <h3>Bạn muốn xóa liên hệ này?</h3>
+                <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Tiêu đề
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.img)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.name)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.img)
-        </dd>
+                        <dt>
+                            Hình ảnh
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
+                        <dd>
+                            <img src="~/Content/upload/img/@Model.img" width="150px" />
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
+                        <dt>
+                            Mô tả
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.detail)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.description)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.detail)
-        </dd>
+                        <dt>
+                            Chi tiết
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.datebegin)
-        </dt>
+                        <dd>
+                            @Html.Raw(Model.detail)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.datebegin)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.menu.name)
-        </dt>
+                    </dl>
 
-        <dd>
-            @Html.DisplayFor(model => model.menu.name)
-        </dd>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-    </dl>
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Xóa" class="btn btn-danger" /> |
-            @Html.ActionLink("Back to List", "Index")
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Xoá" class="btn btn-danger" /> |
+                            @Html.ActionLink("Quay lại", "Index")
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- /.panel-body -->
         </div>
-    }
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
 </div>
