@@ -1,0 +1,63 @@
+﻿@model News.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2>Thông tin</h2>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                Chi tiết liên hệ
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Tiêu đề
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.name)
+                    </dd>
+
+                    <dt>
+                        Hình ảnh
+                    </dt>
+
+                    <dd>
+                        <img src="~/Content/upload/img/@Model.img" width="150px" />
+                    </dd>
+
+                    <dt>
+                        Mô tả
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.description)
+                    </dd>
+
+                    <dt>
+                        Chi tiết
+                    </dt>
+
+                    <dd>
+
+                        @Html.Raw(Model.detail)
+                    </dd>
+                    
+
+                </dl>
+
+                <p>
+                    @Html.ActionLink("Quay lại", "Index")
+                </p>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>

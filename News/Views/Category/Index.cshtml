@@ -1,0 +1,18 @@
+﻿@model News.Models.menu
+
+@{
+    ViewBag.Title = Model.name;
+    Layout = "~/Views/Shared/_Mylayout.cshtml";
+}
+
+<div class="how2 how2-cl4 flex-s-c" style="margin-bottom: 15px">
+    <h3 class="f1-m-2 cl3 tab01-title" style="text-align:center">
+        <text class="size-w-3 f1-s-7 cl3 hov-cl10 trans-03" style="text-align:center">
+            @Model.name
+        </text> 
+    </h3>
+</div>
+    @Html.Action("getProduct", "Category", new { id_m = Model.id_m })
+@*<div class="flex-wr-s-c m-rl--7 p-t-15 pagination modal-3" style="color:black">
+    @Html.Action("getPagelist", "Category")
+</div>*@

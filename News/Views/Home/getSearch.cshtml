@@ -1,0 +1,66 @@
+﻿@model PagedList.IPagedList<News.Models.tintuc>
+@using PagedList.Mvc;
+
+
+@{
+    if (Model.Count() == 0)
+    {
+        <div class="p-t-16">
+            <p class="f1-s-11 cl6 p-b-25">
+                Không tìm thấy từ khóa <em>@ViewBag.meta</em>
+            </p>
+        </div>
+    }
+    else
+    {
+        <p class="f1-s-11 cl6 p-b-25">
+            Từ khóa tìm kiếm <em>@ViewBag.meta</em>
+        </p>
+        <div class="row">
+            @foreach (var i in Model)
+            {
+                <div class="col-sm-6 p-r-25 p-r-15-sr991">
+                <!-- Item latest -->
+                <div class="m-b-45">
+                    <a href="@Url.Action("getDetail", "Category", new {id=i.id })" class="wrap-pic-w hov1 trans-03">
+                        <img style="height:264px" src="~/Content/upload/img/@i.img" alt="IMG">
+                    </a>
+
+                    <div class="p-t-16">
+                        <h5 class="p-b-5">
+                            <a href="@Url.Action("getDetail", "Category", new {id=i.id })" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                @i.description
+                            </a>
+                        </h5>
+
+                        <span class="cl8">
+                            <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
+                                @i.name
+                            </a>
+
+                            <span class="f1-s-3 m-rl-3">
+                                -
+                            </span>
+
+                            <span class="f1-s-3">
+                                @Convert.ToDateTime(@i.datebegin).ToString("MMMM yy")
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    }
+}
+
+<br />
+<div class="flex-wr-s-c m-rl--7 p-t-15 pagination modal-3" style="color:black">
+    @foreach (var i in Model)
+    {
+        @Html.PagedListPager(Model, page => Url.Action("Search", "Home", new { id_m = @i.id_m, page }))
+        break;
+    }
+
+</div>
+

@@ -1,0 +1,35 @@
+﻿@model  IEnumerable< News.Models.tintuc>
+
+@foreach (var i in Model)
+{
+        <!-- Item post -->
+    <div>
+        <a href="~/@ViewBag.meta/@i.meta/@i.id " class="wrap-pic-w hov1 trans-03">
+            <img src="~/Content/upload/img/@i.img" alt="IMG">
+        </a>
+
+        <div class="p-t-10">
+            <h5 class="p-b-5">
+                <a href="~/@ViewBag.meta/@i.meta/@i.id" class="f1-s-5 cl3 hov-cl10 trans-03">
+                    @i.description
+                </a>
+            </h5>
+
+            <span class="cl8">
+                <a href="~/@ViewBag.meta/@i.meta/@i.id" class="f1-s-6 cl8 hov-cl10 trans-03">
+                    @i.meta
+                </a>
+
+                <span class="f1-s-3 m-rl-3">
+                    -
+                </span>
+
+                <span class="f1-s-3">
+                    @Convert.ToDateTime(i.datebegin).ToString("MMMM dd")
+                </span>
+            </span>
+        </div>
+    </div>
+}
+
+

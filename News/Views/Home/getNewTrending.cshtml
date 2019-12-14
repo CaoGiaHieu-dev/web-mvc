@@ -1,0 +1,11 @@
+﻿@model IEnumerable< News.Models.tintuc>
+
+<span class="dis-inline-block cl6 slide100-txt pos-relative size-w-0" data-in="fadeInDown" data-out="fadeOutDown">
+    @foreach (var i in Model)
+    {
+        <span class="dis-inline-block slide100-txt-item animated visible-false">
+            @i.description
+        </span>
+    }
+</span>
+

@@ -1,0 +1,95 @@
+﻿@model PagedList.IPagedList< News.Models.tintuc>
+@using PagedList.Mvc;
+<table class="table table-striped table-bordered table-hover" id="example" style="width:100%">
+    <tr>
+        <th>
+            Tên
+        </th>
+        <th>
+            Ảnh minh hoạ
+        </th>
+        <th>
+            Tên bài viết
+        </th>
+        <th>
+            Bài viết chi tiết
+        </th>
+        <th>
+            Meta
+        </th>
+        <th>
+            Ẩn/Hiện
+        </th>
+        <th>
+            Vị trí
+        </th>
+        <th>
+            Ngày
+        </th>
+        <th>
+            Ngành
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                <img src="~/Content/upload/img/@item.img" width="50" class="img-thumbnail" alt="None" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @if (item.detail.Length >= 100)
+                {
+                    @item.detail.Substring(0, 100) <text>...</text>
+                }
+                else
+                {
+                    @item.detail
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.meta)
+            </td>
+            <td>
+                @if ((bool)item.hide)
+                {<text>Ẩn</text>}
+                else
+                { <text>Hiện</text>}
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.datebegin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.menu.name)
+            </td>
+            <td>
+                <center>
+                    @Html.ActionLink(" ", "Edit", new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary glyphicon glyphicon-edit" })<br />
+                    @Html.ActionLink(" ", "Details", new { id = item.id }, htmlAttributes: new { @class = "btn btn-info glyphicon glyphicon-unchecked" })<br />
+                    @Html.ActionLink(" ", "Delete", new { id = item.id }, htmlAttributes: new { @class = "btn btn-danger glyphicon glyphicon-remove" })<br />
+                </center>
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>*@
+        </tr>
+    }
+
+</table>
+
+@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page }))

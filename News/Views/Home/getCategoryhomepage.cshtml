@@ -1,0 +1,21 @@
+﻿@model IEnumerable< News.Models.menu>
+
+@foreach (var i in Model)
+{
+    <div class="col-sm-6 p-r-25 p-r-15-sr991 p-b-25">
+                            <div class="how2 how2-cl2 flex-sb-c m-b-35">
+                                <h3 class="f1-m-2 cl13 tab01-title">
+                                    @i.name
+                                </h3>
+
+
+                                <a href="~/@ViewBag.meta/@i.meta" class="tab01-link f1-s-1 cl9 hov-cl10 trans-03">
+                                    Xem tất cả
+                                    <i class="fs-12 m-l-5 fa fa-caret-right"></i>
+                                </a>
+                            </div>
+
+                           @{Html.RenderAction("getNewforobj", "Home", new { id_a = @i.id_m });}
+                        </div>
+}
+

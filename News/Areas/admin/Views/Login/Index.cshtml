@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_LoginLayout.cshtml";
+}
+    @model News.Models.LoginMD
+    @using (Html.BeginForm("Index","Login",FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, null, new { @class = "alert aler-danger" })
+        <fieldset>
+            <div class="form-group">
+                <div class="form-label-group">
+                    @Html.TextBoxFor(model => model.username, new { @class = "form-control", @placeholder = "Tên đăng nhập",  @autofocus = "autofocus" })
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-label-group">
+                    @Html.TextBoxFor(model => model.password, new { @class = "form-control", @type = "password", @placeholder = "Mật khẩu"})
+
+                </div>
+            </div>
+            @*<div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="remember-me">
+                            Remember Password
+                        </label>
+                    </div>
+                </div>*@
+            <button type="submit" class="btn btn-primary btn-block">
+                Login
+            </button>
+        </fieldset>
+    }
