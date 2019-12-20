@@ -32,7 +32,9 @@ namespace News.Areas.admin.Controllers
                 var usersession = new UserLogin();
                 var user = dao.getUserName(model.username);
                 usersession.Username = user.Username;
+                usersession.Fullname = user.Fullname;
                 usersession.ID = user.ID;
+                Session["Fullname"] = user.Fullname.ToString();
                 Session.Add(CommonConstants.User_Session,usersession);
 
                 return RedirectToAction("Index", "Home");
