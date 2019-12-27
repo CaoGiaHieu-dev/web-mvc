@@ -9,7 +9,7 @@
       <End Role="menu" EntitySet="menus" />
       <End Role="Contact" EntitySet="Contacts" />
     </AssociationSet>
-    <AssociationSet Name="FK__tintuc__id_m__571DF1D5" Association="NewsModel.FK__tintuc__id_m__571DF1D5">
+    <AssociationSet Name="FK__tintuc__id_m__1273C1CD" Association="NewsModel.FK__tintuc__id_m__1273C1CD">
       <End Role="menu" EntitySet="menus" />
       <End Role="tintuc" EntitySet="tintucs" />
     </AssociationSet>
@@ -24,7 +24,7 @@
     <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="datebegin" Type="DateTime" Precision="0" />
-    <Property Name="id_m" Type="Int32" />
+    <Property Name="id_m" Type="Int32" Nullable="false" />
     <NavigationProperty Name="menu" Relationship="NewsModel.FK_Contact_menu" FromRole="Contact" ToRole="menu" />
   </EntityType>
   <EntityType Name="menu">
@@ -39,7 +39,7 @@
     <Property Name="position" Type="Int32" />
     <Property Name="datebegin" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Contacts" Relationship="NewsModel.FK_Contact_menu" FromRole="menu" ToRole="Contact" />
-    <NavigationProperty Name="tintucs" Relationship="NewsModel.FK__tintuc__id_m__571DF1D5" FromRole="menu" ToRole="tintuc" />
+    <NavigationProperty Name="tintucs" Relationship="NewsModel.FK__tintuc__id_m__1273C1CD" FromRole="menu" ToRole="tintuc" />
   </EntityType>
   <EntityType Name="tintuc">
     <Key>
@@ -56,19 +56,19 @@
     <Property Name="position" Type="Int32" />
     <Property Name="datebegin" Type="DateTime" Precision="0" />
     <Property Name="id_m" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="menu" Relationship="NewsModel.FK__tintuc__id_m__571DF1D5" FromRole="tintuc" ToRole="menu" />
+    <NavigationProperty Name="menu" Relationship="NewsModel.FK__tintuc__id_m__1273C1CD" FromRole="tintuc" ToRole="menu" />
   </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="Username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Fullname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
   </EntityType>
   <Association Name="FK_Contact_menu">
-    <End Type="NewsModel.menu" Role="menu" Multiplicity="0..1" />
+    <End Type="NewsModel.menu" Role="menu" Multiplicity="1" />
     <End Type="NewsModel.Contact" Role="Contact" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="menu">
@@ -79,7 +79,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tintuc__id_m__571DF1D5">
+  <Association Name="FK__tintuc__id_m__1273C1CD">
     <End Type="NewsModel.menu" Role="menu" Multiplicity="1" />
     <End Type="NewsModel.tintuc" Role="tintuc" Multiplicity="*" />
     <ReferentialConstraint>

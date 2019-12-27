@@ -17,14 +17,12 @@ namespace News.Areas.admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            Session.Clear();
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(LoginMD model)
         {
-            
             var dao = new AccountDAO();
             var result = dao.loginn(model.username, model.password);
             if (result && ModelState.IsValid)
@@ -38,6 +36,7 @@ namespace News.Areas.admin.Controllers
                 usersession.ID = user.ID;
                 Session["Fullname"] = user.Fullname.ToString();
                 Session.Add(CommonConstants.User_Session,usersession);
+
                 return RedirectToAction("Index", "Home");
             }
             else

@@ -10,6 +10,15 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+.nav-item-menu
+{
+    font-size:12px;
+    display:block;
+    padding:1rem;
+    text-align:left;
+    width:auto;
+    color:white;
+}
 :root {
   --blue: #4e73df;
   --indigo: #6610f2;

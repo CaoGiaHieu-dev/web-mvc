@@ -29,16 +29,6 @@
           <Property Name="position" Type="int" />
           <Property Name="datebegin" Type="smalldatetime" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="tintuc">
           <Key>
             <PropertyRef Name="id" />
@@ -91,7 +81,6 @@
         <EntityContainer Name="NewsModelStoreContainer">
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tintuc" EntityType="Self.tintuc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__tintuc__id_m__1273C1CD" Association="Self.FK__tintuc__id_m__1273C1CD">
@@ -116,11 +105,10 @@
             <End Role="menu" EntitySet="menus" />
             <End Role="Contact" EntitySet="Contacts" />
           </AssociationSet>
-          <AssociationSet Name="FK__tintuc__id_m__571DF1D5" Association="NewsModel.FK__tintuc__id_m__571DF1D5">
+          <AssociationSet Name="FK__tintuc__id_m__1273C1CD" Association="NewsModel.FK__tintuc__id_m__1273C1CD">
             <End Role="menu" EntitySet="menus" />
             <End Role="tintuc" EntitySet="tintucs" />
           </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="NewsModel.sysdiagram" />
         </EntityContainer>
         <EntityType Name="Contact">
           <Key>
@@ -147,7 +135,7 @@
           <Property Name="position" Type="Int32" />
           <Property Name="datebegin" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Contacts" Relationship="NewsModel.FK_Contact_menu" FromRole="menu" ToRole="Contact" />
-          <NavigationProperty Name="tintucs" Relationship="NewsModel.FK__tintuc__id_m__571DF1D5" FromRole="menu" ToRole="tintuc" />
+          <NavigationProperty Name="tintucs" Relationship="NewsModel.FK__tintuc__id_m__1273C1CD" FromRole="menu" ToRole="tintuc" />
         </EntityType>
         <EntityType Name="tintuc">
           <Key>
@@ -164,20 +152,19 @@
           <Property Name="position" Type="Int32" />
           <Property Name="datebegin" Type="DateTime" Precision="0" />
           <Property Name="id_m" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="menu" Relationship="NewsModel.FK__tintuc__id_m__571DF1D5" FromRole="tintuc" ToRole="menu" />
+          <NavigationProperty Name="menu" Relationship="NewsModel.FK__tintuc__id_m__1273C1CD" FromRole="tintuc" ToRole="menu" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Fullname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FullName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <Association Name="FK_Contact_menu">
-          <End Type="NewsModel.menu" Role="menu" Multiplicity="0..1" />
+          <End Type="NewsModel.menu" Role="menu" Multiplicity="1" />
           <End Type="NewsModel.Contact" Role="Contact" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="menu">
@@ -188,7 +175,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tintuc__id_m__571DF1D5">
+        <Association Name="FK__tintuc__id_m__1273C1CD">
           <End Type="NewsModel.menu" Role="menu" Multiplicity="1" />
           <End Type="NewsModel.tintuc" Role="tintuc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -200,16 +187,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -266,17 +243,6 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="NewsModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

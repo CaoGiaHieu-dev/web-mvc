@@ -142,7 +142,7 @@
                             <input type="file" name="img" id="img" accept=".jpg,.png,.gif,.jpeg,.bmp" />
                         </div>
                         <div class="col-md-4">
-                            <img src="~/Content/upload/img/@Model.img"  />
+                            <img src="~/Content/upload/img/@Model.img" width="100px" />
                         </div>
                     </div>
 
@@ -188,7 +188,7 @@
                             @Html.EditorFor(model => model.position, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.position, "", new { @class = "text-danger" })
                         </div>
-                    </div>
+                    </div>>
                     @Html.HiddenFor(model => model.id_m)
 
                     <div class="form-group">

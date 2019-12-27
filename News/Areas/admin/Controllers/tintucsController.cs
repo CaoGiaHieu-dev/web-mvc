@@ -17,7 +17,7 @@ namespace News.Areas.admin.Controllers
 {
     public class tintucsController : BaseController
     {
-
+        NewsEntities db = new NewsEntities();
         // GET: admin/tintucs
         public ActionResult getPagelist(int? page)
         {
