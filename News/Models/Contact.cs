@@ -12,30 +12,48 @@
 namespace News.Models
 {
 
-using System;
+    using System;
     using System.Collections.Generic;
-    
-public partial class Contact
-{
 
-    public int ID_contact { get; set; }
+    public partial class Contact
+    {
 
-    public string name { get; set; }
+        public int ID_contact { get; set; }
 
-    public string img { get; set; }
+        public string name { get; set; }
 
-    public string description { get; set; }
+        public string img { get; set; }
 
-    public string detail { get; set; }
+        public string description { get; set; }
 
-    public Nullable<System.DateTime> datebegin { get; set; }
+        public string detail { get; set; }
 
-    public int id_m { get; set; }
+        public Nullable<System.DateTime> datebegin { get; set; }
+
+        public int id_m { get; set; }
 
 
 
-    public virtual menu menu { get; set; }
+        public virtual menu menu { get; set; }
 
-}
+    }
 
+    namespace News.Models
+    {
+        using System;
+        using System.Collections.Generic;
+
+        public partial class Contact
+        {
+            public int ID_contact { get; set; }
+            public string name { get; set; }
+            public string img { get; set; }
+            public string description { get; set; }
+            public string detail { get; set; }
+            public Nullable<System.DateTime> datebegin { get; set; }
+            public Nullable<int> id_m { get; set; }
+
+            public virtual menu menu { get; set; }
+        }
+    }
 }

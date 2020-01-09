@@ -4,7 +4,8 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="NewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="NewsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        
         <EntityType Name="Contact">
           <Key>
             <PropertyRef Name="ID_contact" />
@@ -15,8 +16,9 @@
           <Property Name="description" Type="nvarchar(max)" />
           <Property Name="detail" Type="ntext" />
           <Property Name="datebegin" Type="smalldatetime" />
-          <Property Name="id_m" Type="int" Nullable="false" />
+          <Property Name="id_m" Type="int" />
         </EntityType>
+        
         <EntityType Name="menu">
           <Key>
             <PropertyRef Name="id_m" />
@@ -29,6 +31,7 @@
           <Property Name="position" Type="int" />
           <Property Name="datebegin" Type="smalldatetime" />
         </EntityType>
+        
         <EntityType Name="tintuc">
           <Key>
             <PropertyRef Name="id" />
@@ -49,12 +52,12 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="FullName" Type="nchar" MaxLength="10" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK__tintuc__id_m__1273C1CD">
+        <Association Name="FK__tintuc__id_m__571DF1D5">
           <End Role="menu" Type="Self.menu" Multiplicity="1" />
           <End Role="tintuc" Type="Self.tintuc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -67,7 +70,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Contact_menu">
-          <End Role="menu" Type="Self.menu" Multiplicity="1" />
+          <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
           <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="menu">
@@ -83,7 +86,7 @@
           <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tintuc" EntityType="Self.tintuc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__tintuc__id_m__1273C1CD" Association="Self.FK__tintuc__id_m__1273C1CD">
+          <AssociationSet Name="FK__tintuc__id_m__571DF1D5" Association="Self.FK__tintuc__id_m__571DF1D5">
             <End Role="menu" EntitySet="menu" />
             <End Role="tintuc" EntitySet="tintuc" />
           </AssociationSet>
@@ -92,7 +95,8 @@
             <End Role="Contact" EntitySet="Contact" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NewsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -120,7 +124,7 @@
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="datebegin" Type="DateTime" Precision="0" />
-          <Property Name="id_m" Type="Int32" Nullable="false" />
+          <Property Name="id_m" Type="Int32" />
           <NavigationProperty Name="menu" Relationship="NewsModel.FK_Contact_menu" FromRole="Contact" ToRole="menu" />
         </EntityType>
         <EntityType Name="menu">
@@ -158,10 +162,17 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
+
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="FullName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fullname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+
         </EntityType>
         <Association Name="FK_Contact_menu">
           <End Type="NewsModel.menu" Role="menu" Multiplicity="1" />
@@ -239,7 +250,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="NewsModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="ID" ColumnName="ID" />

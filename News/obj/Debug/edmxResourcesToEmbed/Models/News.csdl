@@ -24,7 +24,7 @@
     <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="datebegin" Type="DateTime" Precision="0" />
-    <Property Name="id_m" Type="Int32" Nullable="false" />
+    <Property Name="id_m" Type="Int32" />
     <NavigationProperty Name="menu" Relationship="NewsModel.FK_Contact_menu" FromRole="Contact" ToRole="menu" />
   </EntityType>
   <EntityType Name="menu">
@@ -66,6 +66,10 @@
     <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="FullName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fullname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_Contact_menu">
     <End Type="NewsModel.menu" Role="menu" Multiplicity="1" />

@@ -10,7 +10,7 @@
     <Property Name="description" Type="nvarchar(max)" />
     <Property Name="detail" Type="ntext" />
     <Property Name="datebegin" Type="smalldatetime" />
-    <Property Name="id_m" Type="int" Nullable="false" />
+    <Property Name="id_m" Type="int" />
   </EntityType>
   <EntityType Name="menu">
     <Key>
@@ -44,12 +44,12 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="FullName" Type="nchar" MaxLength="10" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <Association Name="FK__tintuc__id_m__1273C1CD">
+  <Association Name="FK__tintuc__id_m__571DF1D5">
     <End Role="menu" Type="Self.menu" Multiplicity="1" />
     <End Role="tintuc" Type="Self.tintuc" Multiplicity="*" />
     <ReferentialConstraint>
@@ -62,7 +62,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Contact_menu">
-    <End Role="menu" Type="Self.menu" Multiplicity="1" />
+    <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
     <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="menu">
@@ -78,7 +78,7 @@
     <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tintuc" EntityType="Self.tintuc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__tintuc__id_m__1273C1CD" Association="Self.FK__tintuc__id_m__1273C1CD">
+    <AssociationSet Name="FK__tintuc__id_m__571DF1D5" Association="Self.FK__tintuc__id_m__571DF1D5">
       <End Role="menu" EntitySet="menu" />
       <End Role="tintuc" EntitySet="tintuc" />
     </AssociationSet>

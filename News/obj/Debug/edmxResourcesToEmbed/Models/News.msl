@@ -47,7 +47,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="NewsModel.User">
         <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="ID" ColumnName="ID" />

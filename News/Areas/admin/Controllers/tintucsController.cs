@@ -12,12 +12,13 @@ using News.Models;
 using News.FW;
 using PagedList;
 using PagedList.Mvc;
+using Model.Models;
 
 namespace News.Areas.admin.Controllers
 {
     public class tintucsController : BaseController
     {
-        NewsEntities db = new NewsEntities();
+
         // GET: admin/tintucs
         public ActionResult getPagelist(int? page)
         {
